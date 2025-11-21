@@ -76,7 +76,7 @@ export const OverlaySections: React.FC<OverlaySectionsProps> = ({ onNavigate }) 
           
           <div className="flex items-center gap-4 mb-10">
              <div className="h-px w-12 bg-[#6e683b]/50"></div>
-             <p className="text-base md:text-lg text-gray-300 uppercase tracking-[0.3em] font-light">
+             <p className="text-base md:text-lg text-white uppercase tracking-[0.3em] font-light">
                 The Last Honest Advisor
              </p>
              <div className="h-px w-12 bg-[#6e683b]/50"></div>

@@ -21,43 +21,8 @@ export interface AgentData {
   icon: string;
 }
 
-// Augment React's JSX namespace to include Three.js elements used by React Three Fiber
-declare module 'react' {
-  namespace JSX {
-    interface IntrinsicElements {
-      // Primitives
-      group: any;
-      mesh: any;
-      points: any;
-      primitive: any;
-      
-      // Geometries
-      bufferGeometry: any;
-      octahedronGeometry: any;
-      torusGeometry: any;
-      sphereGeometry: any;
-      planeGeometry: any;
-      
-      // Attributes & Helpers
-      bufferAttribute: any;
-      color: any;
-      fog: any;
-      
-      // Materials
-      pointsMaterial: any;
-      meshStandardMaterial: any;
-      meshPhysicalMaterial: any;
-      meshBasicMaterial: any;
-      
-      // Lights
-      pointLight: any;
-      spotLight: any;
-      ambientLight: any;
-    }
-  }
-}
-
-// Also augment global JSX for broader compatibility
+// Augment global JSX namespace to include Three.js elements used by React Three Fiber.
+// Using declare global ensures these merge with React's standard intrinsic elements.
 declare global {
   namespace JSX {
     interface IntrinsicElements {
