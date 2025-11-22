@@ -414,7 +414,7 @@ export const AgentsPage: React.FC<AgentsPageProps> = ({ onNavigate }) => {
                 <div className="border border-white/10 bg-black p-6 font-mono text-sm h-full relative overflow-hidden">
                    {/* Header decoration */}
                    <div className="flex justify-between items-center mb-6 border-b border-white/10 pb-4">
-                      <span className="text-[#6e683b] text-base">>> COUNCIL_LOG_STREAM_V.0.9</span>
+                      <span className="text-[#6e683b] text-base">COUNCIL_LOG_STREAM_V.0.9</span>
                       <span className="text-gray-600 text-sm">ENCRYPTED</span>
                    </div>
                    
