@@ -100,7 +100,7 @@ export const OverlaySections: React.FC<OverlaySectionsProps> = ({ onNavigate }) 
              <div className="h-px w-12 bg-[#6e683b]/50"></div>
           </div>
 
-          <p className="text-sm md:text-base text-gray-400 max-w-3xl mx-auto leading-loose tracking-wide font-light bg-black/30 backdrop-blur-sm p-6 rounded-sm border border-white/5">
+          <p className="text-sm md:text-base text-gray-400 max-w-3xl mx-auto leading-loose tracking-wide font-light">
             The Board demands safety. The Team manufactures consensus. The Consultants bill time.
             <span className="text-white block mt-2 text-lg md:text-xl">We are the only voice in the room with nothing to lose.</span>
           </p>
