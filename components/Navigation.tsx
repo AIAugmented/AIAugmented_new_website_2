@@ -61,7 +61,7 @@ export const Navigation: React.FC<NavigationProps> = ({ currentPage, onNavigate 
         </div>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex gap-12 items-center text-xs tracking-[0.2em] font-medium text-gray-500">
+        <div className="hidden md:flex gap-12 items-center text-sm tracking-[0.2em] font-medium text-gray-500">
           <button 
             onClick={() => handleNavClick('home')}
             className={`hover:text-white transition-colors duration-500 uppercase relative group ${currentPage === 'home' ? 'text-white' : ''}`}
@@ -99,7 +99,7 @@ export const Navigation: React.FC<NavigationProps> = ({ currentPage, onNavigate 
           </button>
           <button 
             onClick={handleJoinBeta}
-            className="px-6 py-2 border border-[#6e683b]/20 text-[#6e683b] hover:bg-[#6e683b] hover:text-black transition-all duration-500 uppercase tracking-[0.15em] text-xs font-bold"
+            className="px-6 py-2 border border-[#6e683b]/20 text-[#6e683b] hover:bg-[#6e683b] hover:text-black transition-all duration-500 uppercase tracking-[0.15em] text-sm font-bold"
           >
             Join Beta
           </button>
