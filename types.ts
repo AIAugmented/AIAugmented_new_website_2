@@ -1,4 +1,13 @@
 import React from 'react';
+import { ThreeElements } from '@react-three/fiber';
+
+// Augment the global JSX namespace to include Three.js elements (mesh, group, etc.)
+// This resolves "Property ... does not exist on type 'JSX.IntrinsicElements'" errors.
+declare global {
+  namespace JSX {
+    interface IntrinsicElements extends ThreeElements {}
+  }
+}
 
 export enum BrandColors {
   DeepBlack = '#050505',

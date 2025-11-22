@@ -1,3 +1,4 @@
+'use client';
 
 import React, { useMemo, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
@@ -257,7 +258,7 @@ export const PricingParticles = () => {
           {/* Additional gold sparkles for richness */}
           <Sparkles count={40} scale={12} size={2} speed={0.1} opacity={0.15} color={BrandColors.NeuralYellow} />
           
-          <EffectComposer disableNormalPass>
+          <EffectComposer enableNormalPass={false}>
              <Bloom luminanceThreshold={0.2} mipmapBlur intensity={0.5} radius={0.5} />
              <Vignette eskil={false} offset={0.1} darkness={0.7} />
           </EffectComposer>

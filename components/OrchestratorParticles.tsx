@@ -1,3 +1,4 @@
+'use client';
 
 import React, { useMemo, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
@@ -187,7 +188,7 @@ export const OrchestratorParticles: React.FC = () => {
           {/* Background Dust */}
           <Sparkles count={80} scale={18} size={2} speed={0.2} opacity={0.2} color="#ffffff" />
           
-          <EffectComposer disableNormalPass>
+          <EffectComposer enableNormalPass={false}>
              {/* Luxurious Soft Bloom */}
              <Bloom luminanceThreshold={0.2} mipmapBlur intensity={0.5} radius={0.5} />
              <Vignette eskil={false} offset={0.1} darkness={0.7} />

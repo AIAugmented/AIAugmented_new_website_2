@@ -1,15 +1,16 @@
+'use client';
 
 import React from 'react';
 import { GlassContainer } from './OverlaySections';
 import { Footer } from './Footer';
 
 interface TermsPageProps {
-  onNavigate: (page: string) => void;
+  onNavigate?: (page: string) => void;
 }
 
 export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate }) => {
   return (
-    <div className="absolute top-0 left-0 w-full min-h-screen bg-[#050505]">
+    <div className="relative w-full min-h-screen bg-[#050505]">
       <section className="pt-40 px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
@@ -286,75 +287,19 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate }) => {
             <section>
                <h2 className="text-3xl font-display text-white mb-6 border-b border-white/10 pb-4">21-24. Operations Policies</h2>
                <p className="mb-2"><strong>Content Removal:</strong> We may remove illegal or violating content. You can appeal.</p>
-               <p className="mb-2"><strong>Feedback:</strong> You grant us rights to use your suggestions for platform improvement.</p>
-               <p className="mb-2"><strong>Inactivity:</strong> Accounts inactive for 24 months may be deleted after notice.</p>
-               <p className="mb-2"><strong>Backups:</strong> We maintain 90-day disaster recovery backups. You should maintain your own exports.</p>
-            </section>
-
-            {/* 25-28 Integrations, Benchmarking, Audit, Features */}
-            <section>
-               <h2 className="text-3xl font-display text-white mb-6 border-b border-white/10 pb-4">25-28. Features & Technical</h2>
-               <p className="mb-2"><strong>Integrations:</strong> We are not responsible for third-party services you connect to.</p>
-               <p className="mb-2"><strong>Benchmarking:</strong> Fair, honest, and transparent benchmarking is permitted.</p>
-               <p className="mb-2"><strong>Audit Logs:</strong> Enterprise accounts have access to 12-month activity logs.</p>
-               <p className="mb-2"><strong>Feature Stability:</strong> We provide 30-day notice for breaking changes or feature deprecation.</p>
-            </section>
-
-            {/* 29. Suspension */}
-            <section>
-               <h2 className="text-3xl font-display text-white mb-6 border-b border-white/10 pb-4">29. Suspension and Termination</h2>
-               <p>We may suspend accounts for non-payment or violation of terms. You may terminate your account anytime. Upon termination, you have 7 days to export data before deletion.</p>
-            </section>
-
-            {/* 30. Disputes */}
-            <section>
-               <h2 className="text-3xl font-display text-white mb-6 border-b border-white/10 pb-4">30. Dispute Resolution and Governing Law</h2>
-               <p>Disputes will be resolved by binding arbitration (AAA) where applicable. You waive rights to class actions and jury trials. Informal resolution is required first.</p>
-            </section>
-
-            {/* 31-40 Misc */}
-            <section>
-               <h2 className="text-3xl font-display text-white mb-6 border-b border-white/10 pb-4">31-40. General Provisions</h2>
-               <p className="mb-2"><strong>Modifications:</strong> 30-day notice for material changes.</p>
-               <p className="mb-2"><strong>Entire Agreement:</strong> These Terms + Privacy Policy constitute the full agreement.</p>
-               <p className="mb-2"><strong>Accessibility:</strong> We commit to accessibility standards; contact us for accommodations.</p>
-               <p className="mb-2"><strong>Export Controls:</strong> You must comply with export laws and sanctions.</p>
-               <p className="mb-2"><strong>Government Use:</strong> Commercial license terms apply to government users.</p>
-            </section>
-
-            {/* 41. Quick Reference */}
-            <section>
-               <h2 className="text-3xl font-display text-white mb-6 border-b border-white/10 pb-4">41. Quick Reference: Key Points</h2>
-               <div className="overflow-x-auto">
-                  <table className="w-full text-left text-base border border-white/10">
-                      <thead className="bg-white/5">
-                          <tr>
-                              <th className="p-4 border-r border-white/10 text-[#6e683b]">Item</th>
-                              <th className="p-4 text-[#6e683b]">Policy Summary</th>
-                          </tr>
-                      </thead>
-                      <tbody className="text-gray-400">
-                          <tr className="border-t border-white/5"><td className="p-4 border-r border-white/5 font-bold text-white">Cost</td><td className="p-4">$149/month (founding rate locked)</td></tr>
-                          <tr className="border-t border-white/5"><td className="p-4 border-r border-white/5 font-bold text-white">Refunds</td><td className="p-4">14-day money-back guarantee only</td></tr>
-                          <tr className="border-t border-white/5"><td className="p-4 border-r border-white/5 font-bold text-white">Your Data</td><td className="p-4">You own it; we don't train models on it</td></tr>
-                          <tr className="border-t border-white/5"><td className="p-4 border-r border-white/5 font-bold text-white">Accuracy</td><td className="p-4">No guarantees; verify independently</td></tr>
-                          <tr className="border-t border-white/5"><td className="p-4 border-r border-white/5 font-bold text-white">Liability</td><td className="p-4">Limited to 12 months of fees paid</td></tr>
-                          <tr className="border-t border-white/5"><td className="p-4 border-r border-white/5 font-bold text-white">Cancellation</td><td className="p-4">Immediate; access through billing period</td></tr>
-                      </tbody>
-                  </table>
-               </div>
+               <p className="mb-2"><strong>Feedback:</strong> You grant us rights to use your suggestions.</p>
+               <p className="mb-2"><strong>Inactivity:</strong> Accounts inactive for 12 months may be archived.</p>
+               <p className="mb-2"><strong>Backups:</strong> We maintain rolling 90-day backups. We are not a permanent archive service.</p>
             </section>
 
             <div className="text-center pt-12 border-t border-white/5">
-                <p className="text-lg text-white font-display mb-2">Questions?</p>
-                <p className="text-sm text-gray-500">Contact: info@aiaugmented.io</p>
-                <p className="text-sm text-gray-600 mt-4">Last Updated: October 19, 2025 | Next Review: October 19, 2026</p>
+                <p className="text-sm text-gray-500">Last Updated: October 19, 2025</p>
             </div>
 
           </GlassContainer>
         </div>
       </section>
-
+      
       <Footer onNavigate={onNavigate} />
     </div>
   );

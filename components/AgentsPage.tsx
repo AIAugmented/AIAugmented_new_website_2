@@ -1,3 +1,4 @@
+'use client';
 
 import React, { useState } from 'react';
 import { GlassContainer } from './OverlaySections';
@@ -6,7 +7,7 @@ import { Footer } from './Footer';
 import { OrchestratorParticles } from './OrchestratorParticles';
 
 interface AgentsPageProps {
-  onNavigate: (page: string) => void;
+  onNavigate?: (page: string) => void;
 }
 
 // Agent Data Structure
@@ -122,7 +123,7 @@ export const AgentsPage: React.FC<AgentsPageProps> = ({ onNavigate }) => {
   const activeAgent = AGENTS[activeAgentIndex];
 
   return (
-    <div className="absolute top-0 left-0 w-full bg-[#050505] min-h-screen overflow-x-hidden text-white">
+    <div className="relative w-full bg-[#050505] min-h-screen overflow-x-hidden text-white">
       
       {/* SECTION 1: TACTICAL SPLIT INTERFACE */}
       <section className="relative min-h-screen flex flex-col lg:flex-row pt-24 lg:pt-0">
@@ -413,7 +414,7 @@ export const AgentsPage: React.FC<AgentsPageProps> = ({ onNavigate }) => {
                 <div className="border border-white/10 bg-black p-6 font-mono text-sm h-full relative overflow-hidden">
                    {/* Header decoration */}
                    <div className="flex justify-between items-center mb-6 border-b border-white/10 pb-4">
-                      <span className="text-[#6e683b] text-base">COUNCIL_LOG_STREAM_V.0.9</span>
+                      <span className="text-[#6e683b] text-base">>> COUNCIL_LOG_STREAM_V.0.9</span>
                       <span className="text-gray-600 text-sm">ENCRYPTED</span>
                    </div>
                    
@@ -547,8 +548,8 @@ const ProcessNode = ({ step, icon: Icon, title, desc, isLast = false }: any) => 
 );
 
 const CheckItem = ({ text }: { text: string }) => (
-   <div className="flex items-center gap-4 p-4 border border-white/5 bg-white/[0.01] hover:border-white/10 transition-colors">
-      <div className="w-1.5 h-1.5 bg-[#6e683b]"></div>
+   <div className="flex items-start gap-4 p-4 border border-white/5 bg-white/[0.01] hover:border-white/10 transition-colors">
+      <div className="w-1.5 h-1.5 bg-[#6e683b] mt-2 rounded-full"></div>
       <span className="text-base text-gray-300 font-light tracking-wide">{text}</span>
    </div>
 );

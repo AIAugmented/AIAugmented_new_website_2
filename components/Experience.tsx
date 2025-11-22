@@ -1,8 +1,12 @@
+'use client';
+
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Environment, Sparkles, Float } from '@react-three/drei';
 import { BrainParticles } from './BrainParticles';
 import { EffectComposer, Bloom, Vignette, Noise } from '@react-three/postprocessing';
+import * as THREE from 'three';
+import '../types';
 
 interface ExperienceProps {
   scrollProgress: number;
@@ -10,13 +14,13 @@ interface ExperienceProps {
 
 export const Experience: React.FC<ExperienceProps> = ({ scrollProgress }) => {
   return (
-    <div className="fixed top-0 left-0 w-full h-full -z-10 bg-[#050505]">
+    <div className="fixed inset-0 w-full h-full z-0 pointer-events-none bg-[#050505]">
       <Canvas
         camera={{ position: [0, 0, 10], fov: 40 }}
         dpr={[1, 2]}
         gl={{ 
           antialias: true,
-          toneMapping: 3, // THREE.ReinhardToneMapping often looks cleaner for glows
+          toneMapping: THREE.ReinhardToneMapping,
           toneMappingExposure: 1.5
         }}
       >
@@ -41,7 +45,7 @@ export const Experience: React.FC<ExperienceProps> = ({ scrollProgress }) => {
         </Float>
 
         {/* High-End Post Processing */}
-        <EffectComposer disableNormalPass>
+        <EffectComposer enableNormalPass={false}>
           <Bloom 
             luminanceThreshold={0.1} 
             mipmapBlur 

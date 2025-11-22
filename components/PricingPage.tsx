@@ -1,3 +1,4 @@
+'use client';
 
 import React, { useState } from 'react';
 import { GlassContainer } from './OverlaySections';
@@ -6,7 +7,7 @@ import { Footer } from './Footer';
 import { PricingParticles } from './PricingParticles';
 
 interface PricingPageProps {
-  onNavigate: (page: string) => void;
+  onNavigate?: (page: string) => void;
 }
 
 // Local variant for this page to ensure consistent "sm" blur
@@ -20,7 +21,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
   const [annual, setAnnual] = useState(true);
 
   return (
-    <div className="absolute top-0 left-0 w-full min-h-screen bg-[#050505] overflow-x-hidden">
+    <div className="relative w-full min-h-screen bg-[#050505] overflow-x-hidden">
       
       {/* NEW: 3D Particle System for Strategic Asymmetry - Fixed position */}
       <PricingParticles />

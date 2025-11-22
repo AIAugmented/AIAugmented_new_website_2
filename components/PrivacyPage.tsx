@@ -1,14 +1,16 @@
+'use client';
+
 import React from 'react';
 import { GlassContainer } from './OverlaySections';
 import { Footer } from './Footer';
 
 interface PrivacyPageProps {
-  onNavigate: (page: string) => void;
+  onNavigate?: (page: string) => void;
 }
 
 export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate }) => {
   return (
-    <div className="absolute top-0 left-0 w-full min-h-screen bg-[#050505]">
+    <div className="relative w-full min-h-screen bg-[#050505]">
       <section className="pt-40 px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">

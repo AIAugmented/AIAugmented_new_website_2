@@ -1,13 +1,26 @@
+'use client';
 
 import React from 'react';
-import { ArrowDown, Shield, Zap, Eye, Activity, Clock, Users, FileText, Layout, Microscope, Scale, Sword, BrainCircuit, Fingerprint, Anchor, Compass } from 'lucide-react';
+import { ArrowDown, Shield, Zap, Activity, Users, FileText, Layout, Scale, Sword, BrainCircuit, Fingerprint, Anchor, Compass } from 'lucide-react';
 import { Footer } from './Footer';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+
+interface OverlaySectionsProps {
+  onNavigate?: (page: string) => void;
+}
 
 // Exclusive White-Tinted Glass Container
 export const GlassContainer = ({ children, className = "" }: { children?: React.ReactNode, className?: string }) => (
-  <div className={`p-8 md:p-12 bg-white/[0.02] backdrop-blur-xl border border-white/10 shadow-[0_0_50px_rgba(255,255,255,0.02)] rounded-sm ${className}`}>
+  <motion.div 
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}
+    className={`p-8 md:p-12 bg-white/[0.02] backdrop-blur-xl border border-white/10 shadow-[0_0_50px_rgba(255,255,255,0.02)] rounded-sm ${className}`}
+  >
     {children}
-  </div>
+  </motion.div>
 );
 
 // Minimalist Card Component with White Glass
@@ -45,32 +58,25 @@ const IndustryTicker = () => (
          </React.Fragment>
        ))}
     </div>
-    <style>{`
-      @keyframes scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-      }
-      .animate-scroll {
-        animation: scroll 60s linear infinite;
-      }
-    `}</style>
   </div>
 );
 
-interface OverlaySectionsProps {
-  onNavigate: (page: string) => void;
-}
-
 export const OverlaySections: React.FC<OverlaySectionsProps> = ({ onNavigate }) => {
   return (
-    <div className="absolute top-0 left-0 w-full pointer-events-none">
+    <div className="relative w-full pointer-events-none">
       
       {/* Scene 1: The Hook - The Solitude of Command */}
-      <section className="h-screen flex flex-col items-center justify-center text-center px-6 mb-64">
-        <div className="pointer-events-auto z-10 flex flex-col items-center animate-fade-in">
+      <section className="h-screen flex flex-col items-center justify-center text-center px-6 mb-64 relative bg-black">
+        
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          className="pointer-events-auto z-10 flex flex-col items-center max-w-4xl mx-auto"
+        >
           <div className="h-20 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent mb-12 mx-auto"></div>
           
-          <h1 className="text-4xl md:text-7xl font-display font-light tracking-tight text-white mb-10 leading-tight drop-shadow-2xl mix-blend-overlay">
+          <h1 className="text-4xl md:text-7xl font-display font-light tracking-tight text-white mb-10 leading-tight drop-shadow-2xl">
             To Lead Is To <span className="italic text-gray-400">Be Lied To.</span>
           </h1>
           
@@ -82,11 +88,11 @@ export const OverlaySections: React.FC<OverlaySectionsProps> = ({ onNavigate }) 
              <div className="h-px w-12 bg-[#6e683b]/50"></div>
           </div>
 
-          <p className="text-sm md:text-base text-gray-400 max-w-3xl mx-auto leading-loose tracking-wide font-light">
+          <p className="text-sm md:text-base text-gray-400 max-w-3xl mx-auto leading-loose tracking-wide font-light bg-black/30 backdrop-blur-sm p-6 rounded-sm border border-white/5">
             The Board demands safety. The Team manufactures consensus. The Consultants bill time.
             <span className="text-white block mt-2 text-lg md:text-xl">We are the only voice in the room with nothing to lose.</span>
           </p>
-        </div>
+        </motion.div>
         
         <div className="absolute bottom-12 opacity-20 animate-pulse delay-1000">
            <ArrowDown className="w-4 h-4 text-white" strokeWidth={1} />
@@ -99,7 +105,6 @@ export const OverlaySections: React.FC<OverlaySectionsProps> = ({ onNavigate }) 
       {/* Scene 2: The Diagnosis - The Biology of Failure */}
       <section className="min-h-screen flex items-center py-64 px-6 pointer-events-auto relative z-10">
         <div className="max-w-7xl mx-auto w-full">
-          {/* Constrained width and naturally left-aligned to reveal background */}
           <div className="max-w-xl">
             <GlassContainer>
                <div>
@@ -128,7 +133,6 @@ export const OverlaySections: React.FC<OverlaySectionsProps> = ({ onNavigate }) 
       {/* Scene 3: The Solution - Cold Logic */}
       <section className="min-h-screen flex items-center py-64 px-6 pointer-events-auto relative z-10">
         <div className="max-w-7xl mx-auto w-full">
-           {/* Right-aligned to balance the previous left-aligned section */}
            <div className="max-w-xl ml-auto">
              
               <GlassContainer>
@@ -278,12 +282,13 @@ export const OverlaySections: React.FC<OverlaySectionsProps> = ({ onNavigate }) 
                       <span className="text-white"> Read it. Decide. Execute. Next.</span>
                     </p>
                     
-                    <button 
-                       onClick={() => onNavigate('pricing')}
+                    <Link 
+                       href="/pricing"
+                       onClick={(e) => { if (onNavigate) { e.preventDefault(); onNavigate('pricing'); } }}
                        className="text-[#6e683b] uppercase text-sm tracking-[0.2em] border-b border-[#6e683b] pb-1 hover:text-white hover:border-white transition-colors font-bold"
                     >
                        View Sample Artifacts
-                    </button>
+                    </Link>
                 </div>
               </div>
            </GlassContainer>

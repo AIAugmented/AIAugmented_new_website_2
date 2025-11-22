@@ -1,13 +1,24 @@
+'use client';
 
 import React from 'react';
 import { Linkedin } from 'lucide-react';
 import { Logo } from './Logo';
+import Link from 'next/link';
 
 interface FooterProps {
-  onNavigate: (page: string) => void;
+  onNavigate?: (page: string) => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+  
+  const handleNav = (e: React.MouseEvent, page: string) => {
+    if (onNavigate) {
+      e.preventDefault();
+      onNavigate(page);
+      window.scrollTo(0, 0);
+    }
+  };
+
   return (
     <section className="py-20 bg-[#050505] flex flex-col items-center relative pointer-events-auto border-t border-white/5 z-20">
         
@@ -30,18 +41,18 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div>
                 <h4 className="text-white font-display text-sm tracking-[0.2em] uppercase mb-8 font-bold text-[#6e683b]">Protocol</h4>
                 <ul className="space-y-4 text-xs text-gray-500 uppercase tracking-widest font-medium">
-                    <li onClick={() => onNavigate('home')} className="hover:text-white transition-colors cursor-pointer">Home</li>
-                    <li onClick={() => onNavigate('about')} className="hover:text-white transition-colors cursor-pointer">About</li>
-                    <li onClick={() => onNavigate('agents')} className="hover:text-white transition-colors cursor-pointer">The Council</li>
-                    <li onClick={() => onNavigate('pricing')} className="hover:text-white transition-colors cursor-pointer">Membership</li>
+                    <li><Link href="/" onClick={(e) => handleNav(e, 'home')} className="hover:text-white transition-colors">Home</Link></li>
+                    <li><Link href="/about" onClick={(e) => handleNav(e, 'about')} className="hover:text-white transition-colors">About</Link></li>
+                    <li><Link href="/agents" onClick={(e) => handleNav(e, 'agents')} className="hover:text-white transition-colors">The Council</Link></li>
+                    <li><Link href="/pricing" onClick={(e) => handleNav(e, 'pricing')} className="hover:text-white transition-colors">Membership</Link></li>
                 </ul>
             </div>
 
              <div>
                  <h4 className="text-white font-display text-sm tracking-[0.2em] uppercase mb-8 font-bold text-[#6e683b]">Secure Comms</h4>
                  <ul className="space-y-4 text-xs text-gray-500 tracking-widest font-medium">
-                    <li onClick={() => onNavigate('privacy')} className="hover:text-white transition-colors cursor-pointer uppercase">Privacy Policy</li>
-                    <li onClick={() => onNavigate('terms')} className="hover:text-white transition-colors cursor-pointer uppercase">Terms of Service</li>
+                    <li><Link href="/privacy" onClick={(e) => handleNav(e, 'privacy')} className="hover:text-white transition-colors uppercase">Privacy Policy</Link></li>
+                    <li><Link href="/terms" onClick={(e) => handleNav(e, 'terms')} className="hover:text-white transition-colors uppercase">Terms of Service</Link></li>
                     <li className="hover:text-white transition-colors cursor-pointer pt-4 border-t border-white/5">info@aiaugmented.io</li>
                  </ul>
             </div>

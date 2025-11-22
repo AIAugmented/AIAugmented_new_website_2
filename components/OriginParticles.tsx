@@ -1,7 +1,11 @@
+'use client';
+
 import React, { useMemo, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float } from '@react-three/drei';
+import { Float, Sparkles, Environment } from '@react-three/drei';
 import * as THREE from 'three';
+import { EffectComposer, Bloom, Vignette, Noise } from '@react-three/postprocessing';
+import '../types';
 
 const GOLD = '#6e683b';
 const PLATINUM = '#e0e0e0';
@@ -173,9 +177,24 @@ export const OriginParticles = () => {
   return (
     <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <Canvas camera={{ position: [0, 0, 9], fov: 35 }} dpr={[1, 2]}>
+            <color attach="background" args={['#050505']} />
+            <fog attach="fog" args={['#050505', 10, 30]} />
+            
+            <Environment preset="city" />
+            <ambientLight intensity={0.2} />
+
             <Float speed={1.5} rotationIntensity={0.1} floatIntensity={0.2}>
                 <MorphingParticles />
             </Float>
+            
+            {/* Add atmosphere */}
+            <Sparkles count={50} scale={12} size={2} speed={0.2} opacity={0.2} color={GOLD} />
+
+            <EffectComposer enableNormalPass={false}>
+               <Bloom luminanceThreshold={0.2} mipmapBlur intensity={0.6} radius={0.5} />
+               <Noise opacity={0.02} />
+               <Vignette eskil={false} offset={0.1} darkness={0.6} />
+            </EffectComposer>
         </Canvas>
     </div>
   );

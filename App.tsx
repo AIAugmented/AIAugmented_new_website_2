@@ -38,7 +38,7 @@ export default function App() {
   };
 
   return (
-    <main className="relative w-full min-h-screen bg-[#050505] text-white selection:bg-[#00f0ff] selection:text-black">
+    <main className="relative w-full min-h-screen text-white selection:bg-[#00f0ff] selection:text-black">
       <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
       
       {/* 3D Background Layer - Fixed */}

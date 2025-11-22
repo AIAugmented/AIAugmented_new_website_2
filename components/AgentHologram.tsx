@@ -1,9 +1,11 @@
+'use client';
 
 import React, { useRef, useState, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Line, Html, Float, Sparkles, Environment } from '@react-three/drei';
 import * as THREE from 'three';
 import { EffectComposer, Bloom, Noise, Vignette } from '@react-three/postprocessing';
+import '../types';
 
 // Luxury Palette
 const GOLD = '#C5B358'; // Vegas Gold (Metallic)
@@ -233,7 +235,7 @@ export const AgentHologram = () => {
 
         <Sparkles count={80} scale={12} size={1.5} speed={0.1} opacity={0.1} color={PLATINUM} />
         
-        <EffectComposer disableNormalPass>
+        <EffectComposer enableNormalPass={false}>
           <Bloom luminanceThreshold={1} mipmapBlur intensity={0.5} radius={0.4} />
           <Noise opacity={0.02} />
           <Vignette eskil={false} offset={0.1} darkness={0.8} />

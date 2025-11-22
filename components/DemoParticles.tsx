@@ -1,3 +1,4 @@
+'use client';
 
 import React, { useMemo, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
@@ -123,7 +124,7 @@ export const DemoParticles = () => {
           
           <Sparkles count={50} scale={20} size={2} speed={0.4} opacity={0.1} color="#00f0ff" />
 
-          <EffectComposer disableNormalPass>
+          <EffectComposer enableNormalPass={false}>
              <Bloom luminanceThreshold={0.1} mipmapBlur intensity={0.6} radius={0.6} />
              <Noise opacity={0.03} />
              <Vignette eskil={false} offset={0.1} darkness={0.6} />

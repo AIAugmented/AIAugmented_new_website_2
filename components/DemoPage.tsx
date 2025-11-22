@@ -1,11 +1,13 @@
+'use client';
 
 import React, { useState } from 'react';
 import { Footer } from './Footer';
 import { DemoParticles } from './DemoParticles';
 import { Terminal, Activity, Lock, Globe, Shield, Zap, FileText, Cpu, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 interface DemoPageProps {
-  onNavigate: (page: string) => void;
+  onNavigate?: (page: string) => void;
 }
 
 // Simulation Scenarios (Keep for background visuals)
@@ -35,7 +37,7 @@ export const DemoPage: React.FC<DemoPageProps> = ({ onNavigate }) => {
   const [selectedScenario] = useState(SCENARIOS[0]);
 
   return (
-    <div className="absolute top-0 left-0 w-full min-h-screen bg-[#050505] overflow-x-hidden text-white">
+    <div className="relative w-full min-h-screen bg-[#050505] overflow-x-hidden text-white">
       
       <DemoParticles />
 
