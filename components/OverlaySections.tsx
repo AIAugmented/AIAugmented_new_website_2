@@ -36,10 +36,22 @@ export const CleanCard = ({ title, icon: Icon, description }: { title: string, i
 );
 
 const IndustryTicker = () => (
-  <div className="w-full overflow-hidden border-y border-white/10 bg-black py-6 relative z-20">
-    <div className="relative flex items-center gap-16 animate-scroll whitespace-nowrap">
+  <div className="w-full overflow-hidden border-y border-white/10 bg-black py-6 relative z-20 select-none">
+    {/* Soft fade edges for premium feel */}
+    <div className="absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
+    <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
+
+    <motion.div 
+      className="flex w-max"
+      animate={{ x: "-50%" }}
+      transition={{ 
+        duration: 40, 
+        ease: "linear", 
+        repeat: Infinity 
+      }}
+    >
        {[...Array(2)].map((_, i) => (
-         <React.Fragment key={i}>
+         <div key={i} className="flex items-center">
             {[
               "ASYMMETRIC WARFARE",
               "CAPITAL PRESERVATION",
@@ -48,16 +60,16 @@ const IndustryTicker = () => (
               "RISK QUANTIFICATION",
               "STRATEGIC DOMINANCE"
             ].map((sector) => (
-               <span key={sector} className="text-sm uppercase tracking-[0.3em] flex items-center gap-4 font-bold">
+               <div key={sector} className="flex items-center gap-4 mr-16 md:mr-24">
                  <span className="w-1.5 h-1.5 bg-[#00f0ff] rounded-full shadow-[0_0_10px_#00f0ff] animate-pulse"></span> 
-                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#6e683b] via-[#9c9660] to-[#00f0ff]">
+                 <span className="text-sm uppercase tracking-[0.3em] font-bold whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-[#6e683b] via-[#9c9660] to-[#00f0ff]">
                    {sector}
                  </span>
-               </span>
+               </div>
             ))}
-         </React.Fragment>
+         </div>
        ))}
-    </div>
+    </motion.div>
   </div>
 );
 

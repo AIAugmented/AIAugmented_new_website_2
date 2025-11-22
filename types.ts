@@ -1,9 +1,10 @@
 import React from 'react';
-import { ThreeElements } from '@react-three/fiber';
+import type { ThreeElements } from '@react-three/fiber';
 
-// Augment the global JSX namespace to include Three.js elements (mesh, group, etc.)
-// This resolves "Property ... does not exist on type 'JSX.IntrinsicElements'" errors.
-declare global {
+// Augment React's JSX namespace to include Three.js elements (mesh, group, etc.)
+// We use module augmentation on 'react' to ensure we merge with standard IntrinsicElements (div, span, etc.)
+// rather than overwriting the global namespace which causes "Property 'div' does not exist" errors.
+declare module 'react' {
   namespace JSX {
     interface IntrinsicElements extends ThreeElements {}
   }
