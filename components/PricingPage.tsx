@@ -36,14 +36,14 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
             </div>
             
             <h1 className="text-5xl md:text-7xl font-display font-light text-white mb-8 leading-tight">
-              Strategic <span className="italic text-gray-500">Asymmetry</span>
+              The Price of <span className="italic text-gray-500">Clarity</span>
             </h1>
             <div className="h-16 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent mb-8 mx-auto"></div>
             
             <p className="text-gray-400 text-base md:text-lg tracking-[0.1em] font-light max-w-xl mx-auto leading-loose">
-              Acquire the capability of a 24/7 strategy firm for the price of a standard utility.
+              You are not buying software. You are securing a 24/7 strategic war room.
               <br className="hidden md:block"/>
-              We are offering early adopters a permanent advantage before public pricing takes effect.
+              Compared to the cost of a single market miscalculation, this investment is a rounding error.
             </p>
         </div>
       </section>

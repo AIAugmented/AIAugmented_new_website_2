@@ -1,12 +1,3 @@
-import type { ThreeElements } from '@react-three/fiber';
-
-// Augment global JSX namespace to include Three.js elements (mesh, group, etc.)
-// Using declare global ensures compatibility with newer React/TypeScript versions
-declare global {
-  namespace JSX {
-    interface IntrinsicElements extends ThreeElements {}
-  }
-}
 
 export enum BrandColors {
   DeepBlack = '#050505',

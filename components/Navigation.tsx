@@ -64,9 +64,14 @@ export const Navigation: React.FC<NavigationProps> = ({ currentPage: propCurrent
             </div>
             
             <div className="flex flex-col">
-              <span className="text-lg font-light tracking-[0.25em] font-display text-white group-hover:text-[#6e683b] transition-colors duration-700 leading-none">
-                AI-AUGMENTED
-              </span>
+              <div className="flex items-center gap-3">
+                <span className="text-lg font-light tracking-[0.25em] font-display text-white group-hover:text-[#6e683b] transition-colors duration-700 leading-none">
+                  AI-AUGMENTED
+                </span>
+                <span className="px-1.5 py-0.5 border border-[#6e683b]/30 text-[0.5rem] text-[#6e683b] tracking-[0.2em] uppercase font-bold bg-[#6e683b]/5 rounded-[1px] shadow-[0_0_10px_rgba(110,104,59,0.2)]">
+                  BETA
+                </span>
+              </div>
               <span className="text-[0.6rem] text-gray-500 uppercase tracking-[0.4em] mt-1 group-hover:text-white transition-colors duration-700 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0">
                 Command Intelligence
               </span>
@@ -98,7 +103,7 @@ export const Navigation: React.FC<NavigationProps> = ({ currentPage: propCurrent
             onClick={handleJoinBeta}
             className="px-6 py-2 border border-[#6e683b]/20 text-[#6e683b] hover:bg-[#6e683b] hover:text-black transition-all duration-500 uppercase tracking-[0.15em] text-sm font-bold"
           >
-            Join Beta
+            Free Trial
           </button>
         </div>
 
@@ -132,7 +137,7 @@ export const Navigation: React.FC<NavigationProps> = ({ currentPage: propCurrent
             onClick={handleJoinBeta}
             className="px-8 py-3 border border-[#6e683b]/20 text-[#6e683b] text-xl font-display font-light tracking-[0.2em] uppercase hover:bg-[#6e683b]/10 transition-all mt-4"
           >
-            JOIN BETA
+            FREE TRIAL
           </button>
         </div>
       )}
