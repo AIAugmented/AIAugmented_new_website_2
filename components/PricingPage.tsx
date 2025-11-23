@@ -157,7 +157,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
                 <div className="mb-8 flex-1">
                   <div className="flex items-center gap-3 mb-6">
                     <Star className="w-5 h-5 text-[#6e683b] fill-[#6e683b]" />
-                    <span className="text-[#6e683b] text-sm uppercase tracking-[0.3em] font-bold">Founding Member</span>
+                    <span className="text--[#6e683b] text-sm uppercase tracking-[0.3em] font-bold">Founding Member</span>
                   </div>
                   <h3 className="text-3xl font-display text-white mb-2">Authority <span className="text-gray-500">Tier</span></h3>
                   <p className="text-sm text-gray-500 uppercase tracking-widest mb-8">Lifetime Rate Lock Active</p>
@@ -191,6 +191,17 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
                 </ul>
              </div>
 
+          </div>
+
+          {/* Risk-Free Guarantee Statement */}
+          <div className="mt-10 text-center animate-fade-in">
+             <div className="inline-flex items-center gap-2 px-4 py-2 border border-[#6e683b]/20 bg-[#6e683b]/5 rounded-full mb-4">
+                <ShieldCheck size={14} className="text-[#6e683b]" />
+                <span className="text-[#6e683b] text-xs uppercase tracking-widest font-bold">28 Days Risk-Free</span>
+             </div>
+             <p className="text-gray-400 text-sm md:text-base font-light tracking-wide max-w-2xl mx-auto leading-relaxed">
+               Deploy capital with absolute confidence. Your access includes a <span className="text-white font-medium">14-day free trial</span> combined with an unconditional <span className="text-white font-medium">14-day money-back guarantee</span>.
+             </p>
           </div>
           
           {/* Waitlist Section */}
