@@ -1,10 +1,8 @@
-import React from 'react';
 import type { ThreeElements } from '@react-three/fiber';
 
-// Augment React's JSX namespace to include Three.js elements (mesh, group, etc.)
-// We use module augmentation on 'react' to ensure we merge with standard IntrinsicElements (div, span, etc.)
-// rather than overwriting the global namespace which causes "Property 'div' does not exist" errors.
-declare module 'react' {
+// Augment global JSX namespace to include Three.js elements (mesh, group, etc.)
+// Using declare global ensures compatibility with newer React/TypeScript versions
+declare global {
   namespace JSX {
     interface IntrinsicElements extends ThreeElements {}
   }

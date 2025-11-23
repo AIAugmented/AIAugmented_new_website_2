@@ -82,12 +82,12 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
       {/* BREATHING SPACE 2 */}
       <div className="h-[15vh] w-full"></div>
 
-      {/* 2. The Monolith (Pricing Card) */}
+      {/* 2. The Pricing Options Grid */}
       <section className="px-6 relative z-10 my-12">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           
           {/* Toggle */}
-          <div className="flex justify-center mb-12">
+          <div className="flex justify-center mb-16">
             <div className="bg-white/[0.05] border border-white/10 p-1 flex items-center relative backdrop-blur-sm">
               <div className={`absolute top-1 bottom-1 w-[calc(50%-4px)] bg-[#6e683b]/10 border border-[#6e683b]/30 transition-all duration-500 ${annual ? 'left-[calc(50%+2px)]' : 'left-[2px]'}`}></div>
               <button 
@@ -105,90 +105,105 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
             </div>
           </div>
 
-          {/* The Card */}
-          <div className="relative group">
-             {/* Glow Effect */}
-             <div className="absolute -inset-1 bg-gradient-to-b from-[#6e683b] via-transparent to-[#6e683b] opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-1000"></div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
              
-             <div className="relative bg-white/[0.02] backdrop-blur-sm border border-white/10 p-8 md:p-16 overflow-hidden shadow-2xl">
-                {/* Decorative Background Elements */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5"></div>
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#6e683b] to-transparent opacity-50"></div>
+             {/* Option 1: 2-Week Free Trial */}
+             <div className="relative group flex flex-col bg-white/[0.02] backdrop-blur-sm border border-white/10 hover:border-[#6e683b]/30 transition-all duration-500 p-8 md:p-12">
+                {/* Glow */}
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-20 group-hover:opacity-50 transition-opacity"></div>
+                
+                <div className="mb-8 flex-1">
+                  <div className="flex items-center gap-3 mb-6">
+                    <Clock className="w-5 h-5 text-gray-400" />
+                    <span className="text-gray-400 text-sm uppercase tracking-[0.3em] font-bold">Evaluation Access</span>
+                  </div>
+                  <h3 className="text-3xl font-display text-white mb-2">14-Day <span className="text-gray-500">Trial</span></h3>
+                  <p className="text-sm text-gray-500 uppercase tracking-widest mb-8">Unrestricted Protocol Access</p>
+                  
+                  <div className="flex items-baseline gap-2 mb-2">
+                    <span className="text-5xl font-light text-white tracking-tight">$0</span>
+                    <span className="text-xl text-gray-600">/ 14 days</span>
+                  </div>
+                  <p className="text-sm text-gray-400 uppercase tracking-widest mb-10 h-10 flex items-center">
+                     Full features. Zero commitment.
+                  </p>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    
-                    {/* Left: The Value */}
-                    <div className="flex flex-col justify-between">
-                        <div>
-                            <div className="flex items-center gap-3 mb-4">
-                                <Star className="w-4 h-4 text-[#6e683b] fill-[#6e683b]" />
-                                <span className="text-[#6e683b] text-sm uppercase tracking-[0.3em] font-bold">Founding Member</span>
-                            </div>
-                            <h3 className="text-4xl font-display text-white mb-2">Authority <span className="text-gray-600">Tier</span></h3>
-                            <p className="text-sm text-gray-500 uppercase tracking-widest mb-8">Lifetime Rate Lock Active</p>
-                            
-                            <div className="flex items-baseline gap-2 mb-2">
-                                <span className="text-5xl font-light text-white tracking-tight">${annual ? '1,490' : '149'}</span>
-                                <span className="text-xl text-gray-600 line-through decoration-[#6e683b] decoration-1">$499</span>
-                            </div>
-                            <p className="text-sm text-gray-400 uppercase tracking-widest mb-10">
-                                {annual ? 'Billed Annually (2 Months Free)' : 'Billed Monthly'}
-                            </p>
-
-                            <button 
-                                onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScph-EGBWK_FMyLzNIypqCA5IfJOcWdKFHOw0D-v1n8zgIWFA/viewform', '_blank')}
-                                className="w-full py-5 bg-[#6e683b] hover:bg-[#8a824a] text-black font-bold text-sm uppercase tracking-[0.3em] transition-all flex items-center justify-center gap-4 group-hover:gap-6 mb-6"
-                            >
-                                <span>Secure Protocol</span>
-                                <ArrowRight size={16} />
-                            </button>
-                            <p className="text-sm text-center text-gray-600">
-                                14-day risk-free trial. Cancel anytime.
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Right: The Specs */}
-                    <div className="border-l border-white/5 pl-0 lg:pl-12">
-                        <div className="space-y-8">
-                            
-                            <div>
-                                <h4 className="text-white font-display text-base mb-4 flex items-center gap-2">
-                                    <Layers size={16} className="text-[#6e683b]" /> Core Capabilities
-                                </h4>
-                                <ul className="space-y-3">
-                                    <FeatureItem text="Unlimited Strategic Sessions" />
-                                    <FeatureItem text="Full Council Access (5 Agents)" />
-                                    <FeatureItem text="The Decision Canvas Interface" />
-                                </ul>
-                            </div>
-
-                            <div>
-                                <h4 className="text-white font-display text-base mb-4 flex items-center gap-2">
-                                    <Briefcase size={16} className="text-[#6e683b]" /> Executive Output
-                                </h4>
-                                <ul className="space-y-3">
-                                    <FeatureItem text="Board-Ready Memo Export" />
-                                    <FeatureItem text="Permanent Strategic Memory" />
-                                    <FeatureItem text="Priority 'Red Phone' Processing" />
-                                </ul>
-                            </div>
-
-                            <div>
-                                <h4 className="text-white font-display text-base mb-4 flex items-center gap-2">
-                                    <Database size={16} className="text-[#6e683b]" /> Sovereignty
-                                </h4>
-                                <ul className="space-y-3">
-                                    <FeatureItem text="Zero-Retention AI Guarantee" />
-                                    <FeatureItem text="Private Sandbox Environment" />
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
+                  <button 
+                    onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScph-EGBWK_FMyLzNIypqCA5IfJOcWdKFHOw0D-v1n8zgIWFA/viewform', '_blank')}
+                    className="w-full py-5 border border-white/20 hover:bg-white hover:text-black text-white font-bold text-sm uppercase tracking-[0.3em] transition-all flex items-center justify-center gap-4 group-hover:gap-6 mb-6"
+                  >
+                    Start Free Trial
+                  </button>
+                  <p className="text-sm text-center text-gray-600">
+                    Prove the value before deploying capital.
+                  </p>
                 </div>
+                
+                {/* Feature List for Trial */}
+                <ul className="space-y-4 border-t border-white/5 pt-8">
+                  <FeatureItem text="Full Council Access (5 Agents)" />
+                  <FeatureItem text="Unlimited Strategic Sessions" />
+                  <FeatureItem text="Decision Canvas Interface" />
+                  <FeatureItem text="Basic Export Capabilities" />
+                </ul>
              </div>
+
+             {/* Option 2: Authority Tier */}
+             <div className="relative group flex flex-col bg-[#6e683b]/5 backdrop-blur-sm border border-[#6e683b]/30 shadow-2xl p-8 md:p-12">
+                {/* Glow */}
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#6e683b] to-transparent opacity-80"></div>
+                <div className="absolute -inset-1 bg-[#6e683b]/10 blur-xl -z-10"></div>
+
+                <div className="mb-8 flex-1">
+                  <div className="flex items-center gap-3 mb-6">
+                    <Star className="w-5 h-5 text-[#6e683b] fill-[#6e683b]" />
+                    <span className="text-[#6e683b] text-sm uppercase tracking-[0.3em] font-bold">Founding Member</span>
+                  </div>
+                  <h3 className="text-3xl font-display text-white mb-2">Authority <span className="text-gray-500">Tier</span></h3>
+                  <p className="text-sm text-gray-500 uppercase tracking-widest mb-8">Lifetime Rate Lock Active</p>
+                  
+                  <div className="flex items-baseline gap-2 mb-2">
+                    <span className="text-5xl font-light text-white tracking-tight">${annual ? '1,490' : '149'}</span>
+                    <span className="text-xl text-gray-600 line-through decoration-[#6e683b] decoration-1">$499</span>
+                  </div>
+                  <p className="text-sm text-gray-400 uppercase tracking-widest mb-10 h-10 flex items-center">
+                     {annual ? 'Billed Annually (2 Months Free)' : 'Billed Monthly'}
+                  </p>
+
+                  <button 
+                    onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScph-EGBWK_FMyLzNIypqCA5IfJOcWdKFHOw0D-v1n8zgIWFA/viewform', '_blank')}
+                    className="w-full py-5 bg-[#6e683b] hover:bg-[#8a824a] text-black font-bold text-sm uppercase tracking-[0.3em] transition-all flex items-center justify-center gap-4 shadow-[0_0_20px_rgba(110,104,59,0.3)] hover:shadow-[0_0_30px_rgba(110,104,59,0.5)] mb-6"
+                  >
+                    Secure Membership
+                  </button>
+                  <p className="text-sm text-center text-gray-600">
+                     Includes 14-day risk-free trial. Cancel anytime.
+                  </p>
+                </div>
+                
+                {/* Feature List for Authority */}
+                <ul className="space-y-4 border-t border-white/5 pt-8">
+                  <FeatureItem text="Everything in Trial" />
+                  <FeatureItem text="Priority 'Red Phone' Processing" />
+                  <FeatureItem text="Permanent Strategic Memory" />
+                  <FeatureItem text="Zero-Retention Guarantee" />
+                  <FeatureItem text="Future Model Upgrades Included" />
+                </ul>
+             </div>
+
           </div>
+          
+          {/* Waitlist Section */}
+          <div className="mt-12 flex flex-col items-center justify-center pt-12 border-t border-white/5">
+              <span className="text-gray-500 text-xs uppercase tracking-[0.2em] mb-4">Capacity is strictly limited.</span>
+              <button 
+                onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScph-EGBWK_FMyLzNIypqCA5IfJOcWdKFHOw0D-v1n8zgIWFA/viewform', '_blank')}
+                className="px-8 py-3 border border-gray-800 text-gray-400 hover:border-[#6e683b] hover:text-[#6e683b] hover:bg-[#6e683b]/5 transition-all uppercase tracking-[0.2em] text-xs font-bold flex items-center gap-3"
+              >
+                Join Waitlist <ArrowRight size={12} />
+              </button>
+          </div>
+
         </div>
       </section>
 
