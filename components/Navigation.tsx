@@ -68,7 +68,7 @@ export const Navigation: React.FC<NavigationProps> = ({ currentPage: propCurrent
                 <span className="text-lg font-light tracking-[0.25em] font-display text-white group-hover:text-[#6e683b] transition-colors duration-700 leading-none">
                   AI-AUGMENTED
                 </span>
-                <span className="px-1.5 py-0.5 border border-[#6e683b]/30 text-[0.5rem] text-[#6e683b] tracking-[0.2em] uppercase font-bold bg-[#6e683b]/5 rounded-[1px] shadow-[0_0_10px_rgba(110,104,59,0.2)]">
+                <span className="px-2 py-1 border border-[#6e683b]/30 text-[0.7rem] text-[#6e683b] tracking-[0.2em] uppercase font-bold bg-[#6e683b]/5 rounded-[1px] shadow-[0_0_10px_rgba(110,104,59,0.2)]">
                   BETA
                 </span>
               </div>
